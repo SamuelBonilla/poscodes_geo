@@ -6,3 +6,4 @@ rq
 requests
 python-dotenv
 pandas
+redis

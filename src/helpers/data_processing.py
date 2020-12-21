@@ -16,7 +16,7 @@ def request_geo_data(geo, collection):
                 try:
                     collection.insert_many(geo_data)
                 except Exception as e:
-                    print(e)
+                    #print(e)
                     pass
 
 
@@ -42,7 +42,6 @@ def load_data(url):
         if len(data['geolocations']) == 10:
             request_geo_data(data, collection)
             data['geolocations'] = []
-            break
         else:
             data['geolocations'].append({
                 "longitude": row['lon'],

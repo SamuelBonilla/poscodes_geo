@@ -34,7 +34,7 @@ def upload_file():
                 metadata
             )
 
-            q.enqueue(load_data, minio_file_name, timeout=23421342343)
+            q.enqueue_call(func=load_data, args=(minio_file_name,), timeout=48*3660)
 
 
             return f"""

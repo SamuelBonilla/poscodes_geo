@@ -46,9 +46,11 @@ services:
 
 
   app:
-    image: python:3
+    build: .
+    working_dir: /usr/src/app
     stdin_open: true
     tty: true
+    command: python run.py
     ports:
       - 5000:5000
     volumes:
@@ -57,11 +59,14 @@ services:
       - redis:redis
       - minio:minio
       - mongo:mongo
+
   
   worker:
-    image: python:3
+    build: .
+    working_dir: /usr/src/app
     stdin_open: true
     tty: true
+    command: python worker.py
     volumes:
       - .:/usr/src/app
     links:
