@@ -5,3 +5,4 @@ pytest
 rq
 requests
 python-dotenv
+pandas
