@@ -1,0 +1,7 @@
+flask
+pymongo
+pyminio
+pytest
+rq
+requests
+python-dotenv
