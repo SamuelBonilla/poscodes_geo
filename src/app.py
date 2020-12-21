@@ -1,18 +1,10 @@
 from flask import Flask, request, render_template
-from pyminio import Pyminio
 from werkzeug.utils import secure_filename
-import src.config
+from src.config import *
 import os
 
 app = Flask(__name__)
 
-pyminio_client = Pyminio.from_credentials(
-    endpoint='minio:9000',
-    access_key=os.getenv('MINIO_ACCESS_KEY'),
-    secret_key=os.getenv('MINIO_SECRET_KEY'),
-    secure=False,
-    publicUrl="0.0.0.0"
-)
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -36,7 +28,7 @@ def upload_file():
             )
 
             return f"""
-                    object stored in bucket : http://localhost:9000{minio_file_name}
+                    object stored in bucket : http://localhost:9000{bucket_name}
 
                     We are processing your file in background :)
                 """
