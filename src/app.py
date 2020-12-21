@@ -14,11 +14,6 @@ q = Queue('data', connection=conn)
 
 
 
-@app.route("/csv", methods=["GET"])
-def csv():
-    load_data('/miaguila/postcodesgeo.csv')
-    return "test"
-
 @app.route("/", methods=["GET", "POST"])
 def upload_file():
     if request.method == "POST":
